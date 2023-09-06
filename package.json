@@ -6,7 +6,10 @@
   "scripts": {
     "start": "node dist/index.js",
     "dev": "tsnd --respawn --transpile-only src/index.ts",
-    "lint": "eslint --ignore-path .gitignore . --ext .js,.ts"
+    "lint": "eslint --ignore-path .gitignore . --ext .js,.ts",
+    "build": "pnpm build:clean && pnpm build:tsc",
+    "build:clean": "rimraf dist; exit 0",
+    "build:tsc": "tsc -p tsconfig.json"
   },
   "keywords": [
     "typescript",
@@ -25,6 +28,7 @@
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
     "eslint-plugin-promise": "^6.0.0",
+    "rimraf": "^5.0.1",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.2.2"
   },
